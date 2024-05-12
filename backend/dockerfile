@@ -8,6 +8,7 @@ RUN npm install
 
 COPY . .
 
+ENV DB_HOSTNAME=localhost
 ENV DB_USERNAME=root
 ENV DB_PASSWORD=root1234
 ENV DB_DATABASE=cl_eksamen
