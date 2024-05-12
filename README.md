@@ -28,17 +28,15 @@
 
 ## Maskine setup
 
-### Step: 1
+### Step 1: Update packagelist and upgrade packages
 
-Opdatering af maskinernes pakkelister og opdatering af allerede installerede pakker
+1. Update packagelist and upgrade installed packages
 
 ```bash
 sudo apt update && sudo apt upgrade
 ```
 
-### Step: 2
-
-Setup docker
+### Step 2: Setup docker
 
 1. Setup docker's apt repo
 
@@ -88,9 +86,7 @@ sudo systemctl reboot
 docker run hello-world
 ```
 
-### Step 3:
-
-Setup swarm cluster
+### Step 3: Setup swarm cluster
 
 1. init swarm cluster on manager
 
