@@ -8,8 +8,11 @@ RUN npm install
 
 COPY . .
 
-# TODO: Add npm run db:reset
-#
+ENV DB_USERNAME=root
+ENV DB_PASSWORD=root1234
+ENV DB_DATABASE=cl_eksamen
+
+RUN npm run db:reset
 
 EXPOSE 3000
 
