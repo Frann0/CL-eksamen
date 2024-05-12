@@ -87,3 +87,43 @@ sudo systemctl reboot
 ```sh
 docker run hello-world
 ```
+
+### Step 3:
+
+Setup swarm cluster
+
+1. init swarm cluster on manager
+
+```sh
+docker swarm init
+```
+
+2. Join swarm cluster on worker nodes
+
+```sh
+docker swarm join --token $SWARM_INIT_TOKEN $MANAGER_IP:2377
+```
+
+3. Confirm nodes status on manager node
+
+```sh
+docker node ls
+```
+
+4. Clone project onto manager node
+
+```sh
+git clone https://github.com/frann0/cl-eksamen && cd cl-eksamen
+```
+
+5. Deploy stack on cluster
+
+```sh
+docker stack deploy --compose-file docker-compose.yml cl-eksamen-stack
+```
+
+6. Check stack deployment status
+
+```sh
+docker stack services cl-eksamen-stack
+```
