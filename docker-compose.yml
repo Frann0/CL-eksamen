@@ -7,6 +7,11 @@ services:
       - 5173:5173
     depends_on:
       - db
+    deploy:
+      placement:
+        constraints: [node.role == worker]
+      replicas: 3
+      mode: replicated
   backend:
     image: franno0/cl-backend:v1.0
     ports:
@@ -17,6 +22,12 @@ services:
       - DB_DATABASE=cl_eksamen
     depends_on:
       - db
+    deploy:
+      placement:
+        constraints: [node.role == worker]
+      replicas: 3
+      mode: replicated
+
   db:
     image: "mysql"
     ports:
@@ -26,6 +37,9 @@ services:
       - MYSQL_DATABASE=cl_eksamen
     volumes:
       - cl_db:/var/lib/mysql
+    deploy:
+      placement:
+        constraints: [node.role == manager]
 
 volumes:
   cl_db:
