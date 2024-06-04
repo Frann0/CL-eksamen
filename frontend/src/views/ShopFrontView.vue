@@ -51,9 +51,9 @@ fetch(`${api}/products`)
             </div>
           </div>
 
-          <div class="row">
+          <div class="row product_list">
 
-            <div class="col-md-4" v-for="product in products">
+            <div class="product col-md-4" v-for="product in products">
               <div class="card mb-4 product-wap rounded-0">
                 <div class="card rounded-0">
                   <img class="card-img rounded-0 img-fluid" :src="product.thumbnail">

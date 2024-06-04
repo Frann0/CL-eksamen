@@ -1,46 +1,15 @@
 version: "3.9"
 
 services:
-  web:
-    image: franno0/cl-frontend:v1.0
-    ports:
-      - 80:5173
-    depends_on:
-      - db
-    deploy:
-      placement:
-        constraints: [node.role == worker]
-      replicas: 3
-      mode: replicated
-  backend:
-    image: franno0/cl-backend:v1.0
-    ports:
-      - 3000:3000
-    environment:
-      - DB_HOSTNAME=db
-      - DB_USERNAME=root
-      - DB_PASSWORD=root1234
-      - DB_DATABASE=cl_eksamen
-    depends_on:
-      - db
-    deploy:
-      placement:
-        constraints: [node.role == worker]
-      replicas: 3
-      mode: replicated
-
   db:
     image: "mysql"
     ports:
       - 3306:3306
     environment:
       - MYSQL_ROOT_PASSWORD=root1234
-      - MYSQL_DATABASE=cl_eksamen
+      - MYSQL_DATABASE=zay
     volumes:
       - cl_db:/var/lib/mysql
-    deploy:
-      placement:
-        constraints: [node.role == manager]
 
 volumes:
   cl_db:

@@ -13,13 +13,12 @@ export default defineConfig({
     },
   },
   preview: {
-    port: 5173,
+    port: 5174,
     strictPort: true,
   },
   server: {
-    port: 5173,
-    strictPort: true,
+    port: 5174,
     host: true,
-    origin: "https://0.0.0.0:5173",
+    origin: "https://0.0.0.0:5174",
   },
 });
